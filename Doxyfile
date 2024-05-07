@@ -1,0 +1,4 @@
+OUTPUT_DIRECTORY       = ./doxygen/
+INPUT                  = HFiredWires.hxx
+PROJECT_NAME           = "OPOSSUM - Object Programming Oriented Sub-Standard Utility Multitool"
+GENERATE_HTML         = NO
