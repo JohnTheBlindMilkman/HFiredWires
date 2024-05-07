@@ -1,4 +1,4 @@
 OUTPUT_DIRECTORY       = ./doxygen/
 INPUT                  = HFiredWires.hxx
-PROJECT_NAME           = "OPOSSUM - Object Programming Oriented Sub-Standard Utility Multitool"
-GENERATE_HTML         = NO
+PROJECT_NAME           = "HFiredWires - A utility class for custom DST analysis which includes the HMdcSeg class"
+GENERATE_LATEX         = NO
