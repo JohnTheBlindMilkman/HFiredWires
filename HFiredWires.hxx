@@ -34,8 +34,7 @@
                 constexpr std::size_t numberOfInnerLayers = 12UL;
                 constexpr std::size_t numberOfOuterLayers = 12UL;
                 constexpr std::size_t numberOfAllLayers = numberOfInnerLayers + numberOfOuterLayers;
-                constexpr std::array<std::size_t,numberOfInnerLayers> innerLayerIndexing{0,1,2,3,4,5,6,7,8,9,10,11};
-                constexpr std::array<std::size_t,numberOfOuterLayers> outerLayerIndexing{12,13,14,15,16,17,18,19,20,21,22,23};
+                constexpr std::array<std::size_t,numberOfInnerLayers> halfLayerIndexing{0,1,2,3,4,5,6,7,8,9,10,11};
                 constexpr std::array<std::size_t,numberOfAllLayers> allLayerIndexing{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
             }
 
@@ -96,7 +95,7 @@
                     {
                         int ncells = 0;
 
-                        for (const int &layer : WireInfo::innerLayerIndexing)
+                        for (const int &layer : WireInfo::halfLayerIndexing)
                         {
                             ncells = innerSeg->getNCells(layer);
                             if (ncells < 1)
@@ -105,14 +104,14 @@
                             for (int cell = 0; cell < ncells; ++cell)
                                 FiredWireCollection.at(layer).push_back(innerSeg->getCell(layer,cell));
                         }
-                        for (const int &layer : WireInfo::outerLayerIndexing)
+                        for (const int &layer : WireInfo::halfLayerIndexing)
                         {
                             ncells = outerSeg->getNCells(layer);
                             if (ncells < 1)
                                 continue;
 
                             for (int cell = 0; cell < ncells; ++cell)
-                                FiredWireCollection.at(layer).push_back(outerSeg->getCell(layer,cell));
+                                FiredWireCollection.at(layer+WireInfo::numberOfInnerLayers).push_back(outerSeg->getCell(layer,cell));
                         }
                     }
 
