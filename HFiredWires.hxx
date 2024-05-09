@@ -28,7 +28,7 @@
     {
         namespace MDC
         {
-            // some global constants whoch might be helpful with the wire list
+            // some global constants which might be helpful with the wire list
             namespace WireInfo
             {
                 constexpr std::size_t numberOfInnerLayers = 12UL;
